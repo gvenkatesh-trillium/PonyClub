@@ -22,7 +22,7 @@ public class LoginPage extends AbstractMain {
     }
 
     public void verifyLoginPage(){
-        Assert.assertTrue(action.getElementText(LoginPage).contains("Login"));
+        Assert.assertTrue(action.getElementText(LoginPage).contains("Login1"));
         Assert.assertTrue(action.getElementText(LoginPage).contains("Username *"));
         Assert.assertTrue(action.getElementText(LoginPage).contains("Password *"));
         Assert.assertTrue(action.getElementText(LoginPage).contains("Forgot your password"));
