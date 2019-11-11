@@ -1,4 +1,5 @@
 Feature: Login
+  PonyClub user login
   Scenario: As a PonyClub user I want to Login successfully
     Given I am on home page
     And I go to login page
