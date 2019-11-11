@@ -18,15 +18,26 @@ public class LoginPageStepDef extends AbstractMain {
         loginPage.verifyLoginPage();
     }
 
-    @Given("^I enter valid login details, username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
-    public void i_enter_valid_login_details_username_as_and_password_as(String username, String password) throws Throwable {
-        loginPage.enterLoginDetailsAndLogin(username, password);
+    @And("^I enter valid username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
+    public void i_enter_valid_username_as_something_and_password_as_something(String username, String password) throws Throwable {
+        loginPage.enterValidLoginDetails(username, password);
 
     }
 
-    @Then("^login must be successful\\.$")
-    public void login_must_be_successful() throws Throwable {
-        loginPage.verifyLoggedInPage();
+    @Given("^I enter valid login details, username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
+    public void i_enter_valid_login_details_username_as_and_password_as(String username, String password) throws Throwable {
+        loginPage.enterValidLoginDetails(username, password);
 
+    }
+
+    @And("^I click (.+) button$")
+    public void i_click_button(String submitButton) throws Throwable {
+        loginPage.clickSubmitButton(submitButton);
+
+    }
+
+    @Then("^I Should be redirected \"([^\"]*)\" page.$")
+    public void i_should_be_redirected_something_page(String connectedFamily) throws Throwable {
+        loginPage.verifyLoggedInPage(connectedFamily);
     }
 }

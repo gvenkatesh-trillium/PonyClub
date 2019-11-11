@@ -14,7 +14,7 @@ public class Login extends AbstractMain {
     public static By FindOutMoreAboutMembershipButton = By.cssSelector(".promobox-link:nth-child(6) .btn-anim1");
     public static By UsernameBox = By.cssSelector("#Username");
     public static By PasswordBox = By.cssSelector("#Password");
-    public static By LoginButton = By.cssSelector(".btn_white_to_red > .btn-anim2");  //Submit button
+    public static By submitButton = By.cssSelector(".btn_white_to_red > .btn-anim2");  //Submit button
 
     public void goToLoginPage() throws InterruptedException {
 //        action.clickElement(LoginLink);
@@ -36,16 +36,25 @@ public class Login extends AbstractMain {
         action.isElementPresent(FindOutMoreAboutMembershipButton);
     }
 
-    public void enterLoginDetailsAndLogin(String username, String password) throws InterruptedException {
+    public void enterValidLoginDetails(String username, String password) throws InterruptedException {
+
         action.sendElement(UsernameBox, username);
         action.sendElement(PasswordBox, password);
         Thread.sleep(3000);
-        action.clickElement(LoginButton);
-        Thread.sleep(10000);
+
     }
-    public void verifyLoggedInPage(){
-        Assert.assertTrue(action.getElementText(LoginPage).contains("Connected family"));
+
+    public void clickSubmitButton(String submitButton) throws InterruptedException {
+        action.clickElement(Login.submitButton);
+        Thread.sleep(10000);
+
+    }
+
+    public void verifyLoggedInPage(String connectedFamily){
+        Assert.assertTrue(action.getElementText(LoginPage).contains(connectedFamily));
         Assert.assertTrue(action.getElementText(Header).contains("Logout"));
         Assert.assertTrue(driver.getCurrentUrl().contains("connected-family"));
     }
+
+
 }
