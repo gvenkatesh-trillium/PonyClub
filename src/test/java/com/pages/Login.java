@@ -18,7 +18,7 @@ public class Login extends AbstractMain {
 
     public void goToLoginPage() throws InterruptedException {
 //        action.clickElement(LoginLink);
-        driver.get("https://trillium-interactive-ponyclub-dev.azurewebsites.net/login");
+        driver.get(BASE_URL+"/login");
         Thread.sleep(5000);
 
     }

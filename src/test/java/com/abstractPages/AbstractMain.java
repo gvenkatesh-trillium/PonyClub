@@ -21,6 +21,7 @@ public class AbstractMain {
     public static RegistrationPage registrationPage = new RegistrationPage();
     public static SearchPage searchPage = new SearchPage();
 
+    public static String BASE_URL = "https://trillium-interactive-ponyclub-dev.azurewebsites.net";
     public static By Header = By.cssSelector(".header");
     public static By Footer = By.cssSelector(".footer");
     public static By LowerFooter = By.className("__lower");

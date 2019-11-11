@@ -36,7 +36,7 @@ public class LoginPageStepDef extends AbstractMain {
 
     }
 
-    @Then("^I Should be redirected \"([^\"]*)\" page.$")
+    @Then("^I should be redirected \"([^\"]*)\" page.$")
     public void i_should_be_redirected_something_page(String connectedFamily) throws Throwable {
         loginPage.verifyLoggedInPage(connectedFamily);
     }
