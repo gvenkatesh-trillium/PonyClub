@@ -115,7 +115,7 @@ public class RegistrationPage extends AbstractMain {
     }
     public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
         Assert.assertTrue(action.getElementText(RegistrationPage).contains(thankYou));
-        Assert.assertTrue(action.getElementText(RegistrationPage).contains("Please click the link in the email to go to the Login Page"));
+        Assert.assertTrue(action.getElementText(RegistrationPage).contains("An email has been sent to you to enable you to activate your account. Please click the link in the email to go to the Login Page"));
         Thread.sleep(5000);
     }
 

@@ -17,6 +17,6 @@ Feature: Registration
      |  automated@test4.com   |automated@test4.com     |	Password1 |	Password1   	|
    And I accept Terms & Conditions
    And I click <Create account> button to submit the form
-   Then I should see "Thank You" and activate yor account message
+   Then I should see "Thank you" and activate yor account message
 
 
