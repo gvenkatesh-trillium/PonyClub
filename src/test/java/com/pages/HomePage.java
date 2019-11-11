@@ -8,7 +8,7 @@ public class HomePage extends AbstractMain {
 
     public static String BASE_URL = "https://trillium-interactive-ponyclub-dev.azurewebsites.net";
     public static By Cookie = By.cssSelector(".cookie__btn");
-    public String Title = "Trillium1";
+    public String Title = "Trillium2";
 
 
     public void goToHomePage() throws InterruptedException {
