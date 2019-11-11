@@ -9,9 +9,7 @@ public class HomePage extends AbstractMain {
     public static String BASE_URL = "https://trillium-interactive-ponyclub-dev.azurewebsites.net";
     public static By Cookie = By.cssSelector(".cookie__btn");
     public String Title = "Trillium";
-    public static By Header = By.cssSelector(".header");
-    public static By Footer = By.cssSelector(".footer");
-    public static By LowerFooter = By.className("__lower");
+
 
     public void goToHomePage() throws InterruptedException {
         driver.get(BASE_URL);
