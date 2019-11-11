@@ -96,12 +96,12 @@ public class RegistrationPage extends AbstractMain {
         action.sendElement(Password, list.get(0).get("Password"));
         action.sendElement(ConfirmPassword, list.get(0).get("ConfirmPassword"));
         Thread.sleep(5000);
-        action.clickElement(By.cssSelector(".row:nth-child(6) .btn-anim2"));
-        Thread.sleep(5000);
+
 
     }
     public void acceptTermsAndConditions() throws InterruptedException {
-
+        action.clickElement(By.cssSelector(".row:nth-child(6) .btn-anim2"));
+        Thread.sleep(5000);
         action.clickElement(Terms);
         action.clickElement(Conditions);
         Thread.sleep(5000);

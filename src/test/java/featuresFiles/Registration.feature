@@ -14,7 +14,7 @@ Feature: Registration
      |  SE1 9HF | London Address 1|	London Address 2|	London 	| Auto Selected |	Auto Selected |
    And I enter the following details account details
      | eMail     		     | ConfirmEmail 		 |	Password  |	ConfirmPassword |
-     |  automated@test4.com   |automated@test4.com     |	Password1 |	Password1   	|
+     |  automated@test.com   |automated@test.com     |	Password1 |	Password1   	|
    And I accept Terms & Conditions
    And I click <Create account> button to submit the form
    Then I should see "Thank you" and activate yor account message
