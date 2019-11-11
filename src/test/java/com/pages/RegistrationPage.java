@@ -90,6 +90,7 @@ public class RegistrationPage extends AbstractMain {
         Random rn = new Random();
         int rNumber = rn.nextInt(10000 - 10 + 1) + 1;
         String rNum = String.valueOf(rNumber);
+        Thread.sleep(5000);
         List<Map<String, String>> list = account.asMaps(String.class, String.class);
         action.sendElement(eMail, rNum+list.get(0).get("eMail"));
         action.sendElement(ConfirmEmail, rNum+list.get(0).get("ConfirmEmail"));
