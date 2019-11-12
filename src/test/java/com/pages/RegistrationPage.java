@@ -101,7 +101,7 @@ public class RegistrationPage extends AbstractMain {
 
     }
     public void acceptTermsAndConditions() throws InterruptedException {
-        action.clickElement(By.cssSelector(".row:nth-child(6) .btn-anim2"));
+        action.clickElement(By.cssSelector(".step-wrapper:nth-child(4) .step-wrapper-cta-title"));
         Thread.sleep(5000);
         action.clickElement(Terms);
         action.clickElement(Conditions);
