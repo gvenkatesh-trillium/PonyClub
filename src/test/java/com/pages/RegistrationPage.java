@@ -112,7 +112,7 @@ public class RegistrationPage extends AbstractMain {
     public void submitRegistration(String createAccount) throws InterruptedException {
 
         action.clickElement(CreateAccountButton);
-        Thread.sleep(5000);
+        Thread.sleep(20000);
     }
     public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
         Assert.assertTrue(action.getElementText(RegistrationPage).contains(thankYou));
