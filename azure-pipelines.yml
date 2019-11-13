@@ -19,7 +19,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     # testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testResultsFiles: '**/cucumber-report/cucumber-html-reports/feature-overview.html'
+    testResultsFiles: '**/cucumber-report/cucumber-html-reports/feature-overview.htmlEncode() in .Net'
     goals: 'package'
 
 - task: PublishTestResults@2
