@@ -91,13 +91,13 @@
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <projectName>Pony Club</projectName>
-                            <outputDirectory>${project.build.directory}/report</outputDirectory>
+                            <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                         </configuration>
                     </execution>
