@@ -1,6 +1,6 @@
 Feature: Registration
   As a new user I should be able to register myself on the Pony Club website
- Scenario: Create a New User account
+ Scenario: As New user I want to create a new user account on Pony Club website
    Given I am on home page
    And I go to login page
    And I should be able to see Login page with link to Create an account
