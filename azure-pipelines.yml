@@ -33,3 +33,17 @@ steps:
     #buildPlatform: # Optional
     #buildConfiguration: # Optional
     #publishRunAttachments: true # Optional
+
+- task: FtpUpload@2
+  inputs:
+        credentialsOption: 'inputs'
+        serverUrl: 'ftp.dlptest.com'
+        username: 'dlpuser@dlptest.com'
+        password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
+        rootDirectory: '**/cucumber-report/cucumber-html-reports'
+        filePatterns: '**'
+        remoteDirectory: '/upload/$(Build.BuildId)/'
+        clean: false
+        cleanContents: false
+        preservePaths: false
+        trustSSL: false
