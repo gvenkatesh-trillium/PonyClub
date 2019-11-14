@@ -40,7 +40,7 @@ steps:
         serverUrl: 'ftp://ftp.dlptest.com'
         username: 'dlpuser@dlptest.com'
         password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
-        rootDirectory: '**/D:/a/1/s/target'
+        rootDirectory: '/target/cucumber-report/'
         filePatterns: '**'
         remoteDirectory: '/report/'
         clean: false
