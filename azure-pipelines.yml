@@ -37,12 +37,12 @@ steps:
 - task: FtpUpload@2
   inputs:
         credentialsOption: 'inputs'
-        serverUrl: 'ftp.dlptest.com'
+        serverUrl: 'ftp://ftp.dlptest.com'
         username: 'dlpuser@dlptest.com'
         password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
-        rootDirectory: '**/cucumber-report/cucumber-html-reports'
+        rootDirectory: '**/D:/a/1/s/target'
         filePatterns: '**'
-        remoteDirectory: '/upload/$(Build.BuildId)/'
+        remoteDirectory: '/report/'
         clean: false
         cleanContents: false
         preservePaths: false
