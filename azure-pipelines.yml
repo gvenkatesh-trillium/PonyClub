@@ -34,7 +34,19 @@ steps:
     #buildConfiguration: # Optional
     #publishRunAttachments: true # Optional
 
-
+- task: FtpUpload@2
+  inputs:
+        credentialsOption: 'inputs'
+        serverUrl: 'ftp://ftp.dlptest.com'
+        username: 'dlpuser@dlptest.com'
+        password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
+        rootDirectory: 'D:/a/1/s/target/cucumber-report/'
+        filePatterns: '**'
+        remoteDirectory: '/report/'
+        clean: false
+        cleanContents: false
+        preservePaths: false
+        trustSSL: false
 
 - task: ArchiveFiles@2
   inputs:
