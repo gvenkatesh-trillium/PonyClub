@@ -1,9 +1,6 @@
 package com.abstractPages;
 
-import com.pages.HomePage;
-import com.pages.Login;
-import com.pages.RegistrationPage;
-import com.pages.SearchPage;
+import com.pages.*;
 import com.utils.CommonUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +17,7 @@ public class AbstractMain {
     public static Login loginPage = new Login();
     public static RegistrationPage registrationPage = new RegistrationPage();
     public static SearchPage searchPage = new SearchPage();
+    public static ForgotPassword forgotPassword = new ForgotPassword();
 
     public static String BASE_URL = "https://trillium-interactive-ponyclub-dev.azurewebsites.net";
     public static By Header = By.cssSelector(".header");

@@ -15,6 +15,7 @@ public class Login extends AbstractMain {
     public static By UsernameBox = By.cssSelector("#Username");
     public static By PasswordBox = By.cssSelector("#Password");
     public static By submitButton = By.cssSelector(".btn_white_to_red > .btn-anim2");  //Submit button
+    public static By ForgotPasswordLink = By.cssSelector("a[href*='forgotten-password']");
 
     public void goToLoginPage() throws InterruptedException {
 //        action.clickElement(LoginLink);
@@ -34,6 +35,7 @@ public class Login extends AbstractMain {
         action.isElementPresent(CreateAccountButton);
         action.isElementPresent(FindBranchButton);
         action.isElementPresent(FindOutMoreAboutMembershipButton);
+        action.isElementPresent(ForgotPasswordLink);
     }
 
     public void enterValidLoginDetails(String username, String password) throws InterruptedException {

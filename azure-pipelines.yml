@@ -4,46 +4,54 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: "vs2017-win2016"
 
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    # testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    testResultsFiles: '**/cucumber-report/cucumber-html-reports/feature-overview.htmlEncode() in .Net'
-    goals: 'package'
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: true
+      # testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testResultsFiles: '**/cucumber-report/cucumber-html-reports/feature-overview.htmlEncode() in .Net'
+      goals: 'package'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' 
-    testResultsFiles: '**/cucumber-results.xml' 
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-    #mergeTestResults: false # Optional
-    #failTaskOnFailedTests: false # Optional
-    #testRunTitle: # Optional
-    #buildPlatform: # Optional
-    #buildConfiguration: # Optional
-    #publishRunAttachments: true # Optional
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/cucumber-results.xml'
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      #failTaskOnFailedTests: false # Optional
+      #testRunTitle: # Optional
+      #buildPlatform: # Optional
+      #buildConfiguration: # Optional
+      #publishRunAttachments: true # Optional
 
-- task: FtpUpload@2
-  inputs:
-        credentialsOption: 'inputs'
-        serverUrl: 'ftp://ftp.dlptest.com'
-        username: 'dlpuser@dlptest.com'
-        password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
-        rootDirectory: '/target/cucumber-report/'
-        filePatterns: '**'
-        remoteDirectory: '/report/'
-        clean: false
-        cleanContents: false
-        preservePaths: false
-        trustSSL: false
+#  - task: FtpUpload@2
+#    inputs:
+#      credentialsOption: 'inputs'
+#      serverUrl: 'ftp://waws-prod-ln1-025dr.ftp.azurewebsites.windows.net/site/wwwroot'
+#      username: 'trillium-qa-reports\$trillium-qa-reports'
+#      password: 'rqrMZNj7QneKHSvQB78Dp8cX30piWwZRcownn37ZoukwsZqKBGwmv2oy3Q3v'
+#      rootDirectory: 'D:/a/1/s/target/cucumber-report/'
+#      filePatterns: '**'
+#      remoteDirectory: '/site/wwwroot/'
+#      clean: false
+#      cleanContents: false
+#      preservePaths: false
+#      trustSSL: false
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: 'D:/a/1/s/target/cucumber-report/'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
