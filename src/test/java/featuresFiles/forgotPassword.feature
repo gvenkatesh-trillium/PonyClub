@@ -8,7 +8,7 @@ Feature: Forgotten Password
     And I should see the "Forgot your password?" link
     And I click on "forgot password" link
     And I should see the "Forgotten Password" page
-    And I enter valid username as "gvenkatesh@trillium.net" and I click <Submit> button
+    And I enter valid username as "TrilliumEmailTest@protonmail.com" and I click <Submit> button
     Then I should see eMail sent message
     And I go to my inbox and click on reset password link
     And I should see reset password page

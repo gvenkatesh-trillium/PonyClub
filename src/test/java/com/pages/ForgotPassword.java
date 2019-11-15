@@ -36,4 +36,21 @@ public class ForgotPassword extends AbstractMain {
         Assert.assertTrue(action.getElementText(ForgotPasswordPage).contains("We have sent an email to your provided address. When you receive it, please click on the link contained in it and you will be able to set a new Password."));
 
     }
+
+    public void resetPasswordFromResetLinkInEmail() throws InterruptedException {
+        driver.get("https://mail.protonmail.com/login");
+        Thread.sleep(5000);
+        action.sendElement(By.cssSelector("#username"), "TrilliumEmailTest");
+        action.sendElement(By.cssSelector("#password"), "Password123");
+        action.clickElement(By.cssSelector("#login_btn"));
+        Thread.sleep(5000);
+        action.clickElement(By.cssSelector("#conversation-list-columns > section > div.conversation.marked.hasLabels > div.conversation-meta > div.row.top > h4 > span.subject-text.ellipsis"));
+        Thread.sleep(5000);
+        action.clickElement(By.cssSelector("a[href*='u2564215.ct.sendgrid.net/wf/click']"));
+        Thread.sleep(5000);
+
+
+
+
+    }
 }

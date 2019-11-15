@@ -35,6 +35,7 @@ public class ForgotPasswordStepDef extends AbstractMain {
     }
     @And("^I go to my inbox and click on reset password link$")
     public void i_go_to_my_inbox_and_click_on_reset_password_link() throws Throwable {
+        forgotPassword.resetPasswordFromResetLinkInEmail();
 
     }
 

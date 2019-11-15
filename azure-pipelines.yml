@@ -48,10 +48,10 @@ steps:
 #      preservePaths: false
 #      trustSSL: false
 
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: 'D:/a/1/s/target/cucumber-report/'
-      includeRootFolder: false
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
+#  - task: ArchiveFiles@2
+#    inputs:
+#      rootFolderOrFile: 'D:/a/1/s/target/cucumber-report/'
+#      includeRootFolder: false
+#      archiveType: 'zip'
+#      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#      replaceExistingArchive: true
