@@ -42,7 +42,7 @@ steps:
         password: 'rqrMZNj7QneKHSvQB78Dp8cX30piWwZRcownn37ZoukwsZqKBGwmv2oy3Q3v'
         rootDirectory: 'D:/a/1/s/target/cucumber-report/'
         filePatterns: '**'
-        remoteDirectory: '/report/'
+        remoteDirectory: '/site/wwwroot/'
         clean: false
         cleanContents: false
         preservePaths: false
