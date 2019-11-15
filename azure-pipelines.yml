@@ -37,9 +37,9 @@ steps:
 - task: FtpUpload@2
   inputs:
         credentialsOption: 'inputs'
-        serverUrl: 'ftp://ftp.dlptest.com'
-        username: 'dlpuser@dlptest.com'
-        password: 'bbCKucPzfr4b9YXUY7tvsNKyh'
+        serverUrl: 'ftp://waws-prod-ln1-025dr.ftp.azurewebsites.windows.net/site/wwwroot'
+        username: 'trillium-qa-reports\$trillium-qa-reports'
+        password: 'rqrMZNj7QneKHSvQB78Dp8cX30piWwZRcownn37ZoukwsZqKBGwmv2oy3Q3v'
         rootDirectory: 'D:/a/1/s/target/cucumber-report/'
         filePatterns: '**'
         remoteDirectory: '/report/'
@@ -50,8 +50,8 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
+    rootFolderOrFile: 'D:/a/1/s/target/cucumber-report/'
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
