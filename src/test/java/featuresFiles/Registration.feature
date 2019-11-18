@@ -6,7 +6,7 @@ Feature: Registration
    And I should be able to see Login page with link to Create an account
    And I will click on <Crate an account> button in login page
    And I should see Registration form page
-   And I enter the following details personal details
+   And I enter the following personal details
      | Title     		 | FirstName 		 |	LastName 		  |	TelephoneNumber |
      |Random Selection   |Automated FirstName|	Automated LastName|	01234567890 	|
    And I enter the following details address details

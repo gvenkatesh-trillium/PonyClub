@@ -25,7 +25,7 @@ public class RegistrationStepDef extends AbstractMain {
 
     }
 
-    @And("^I enter the following details personal details$")
+    @And("^I enter the following personal details$")
     public void i_enter_the_following_details(DataTable personalDetails) throws Throwable {
         registrationPage.enterPersonalDetails(personalDetails);
 

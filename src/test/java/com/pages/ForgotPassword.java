@@ -3,8 +3,7 @@ package com.pages;
 import com.abstractPages.AbstractMain;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
+
 
 import java.util.ArrayList;
 
@@ -51,22 +50,40 @@ public class ForgotPassword extends AbstractMain {
         action.clickElement(By.cssSelector(".marked .subject-text"));
         Thread.sleep(5000);
         action.clickElement(By.cssSelector("a[href*='u2564215.ct.sendgrid.net/wf/click']"));
+         Thread.sleep(10000);
+        //Switch tab
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
         Thread.sleep(5000);
+
+        if(driver.findElement(ForgotPasswordPage).getText().contains("The reset link has expired. Please request a new one"))
+            for (int i = 1; i <= 5; i++) {
+                driver.switchTo().window(tabs2.get(1));
+//                driver.close();
+                Thread.sleep(5000);
+                driver.switchTo().window(tabs2.get(0));
+                System.out.println("Refreshing eMail - " + i);
+                Thread.sleep(5000);
+                action.clickElement(By.cssSelector(".active .navigationItem-title"));
+                Thread.sleep(5000);
+                action.clickElement(By.cssSelector(".marked .subject-text"));
+                Thread.sleep(5000);
+                action.clickElement(By.cssSelector("a[href*='u2564215.ct.sendgrid.net/wf/click']"));
+                Thread.sleep(10000);
+                if(!driver.findElement(ForgotPasswordPage).getText().contains("The reset link has expired. Please request a new one")){
+                    break;
+                }
+            }
+
+
 
     }
 
-    public void goToResetPasswordPage() throws InterruptedException {
-        Thread.sleep(10000);
-        //Switch tab
-        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//        driver.switchTo().window(tabs2.get(0));
-//        driver.close();
-        driver.switchTo().window(tabs2.get(1));
-        Thread.sleep(5000);
+    public void goToResetPasswordPage()  {
+        Assert.assertTrue(driver.getTitle().contains("Reset Password - Pony Club"));
         Assert.assertTrue(action.getElementText(ForgotPasswordPage).contains("Reset Password"));
         Assert.assertTrue(action.getElementText(ForgotPasswordPage).contains("Password *"));
         Assert.assertTrue(action.getElementText(ForgotPasswordPage).contains("Confirm Password *"));
-        Assert.assertTrue(driver.getTitle().contains("Reset Password - Pony Club"));
 
     }
     public void enterValidPasswordAndSubmit(String resetPasswordSubmitButton) throws InterruptedException {
