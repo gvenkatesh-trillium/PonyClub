@@ -41,15 +41,18 @@ public class ForgotPasswordStepDef extends AbstractMain {
 
     @And("^I should see reset password page$")
     public void i_should_see_reset_password_page() throws Throwable {
+        forgotPassword.goToResetPasswordPage();
 
     }
 
     @And("^I enter new password and click (.+)$")
-    public void i_enter_new_password_and_click_submitButton(String submit) throws Throwable {
+    public void i_enter_new_password_and_click_submitButton(String resetPasswordSubmitButton) throws Throwable {
+        forgotPassword.enterValidPasswordAndSubmit(resetPasswordSubmitButton);
 
     }
     @Then("^I should see message \"([^\"]*)\" and \"([^\"]*)\"$")
     public void i_should_see_message_thankYou(String strArg1, String strArg2) throws Throwable {
+        forgotPassword.ResetPasswordConfirmation();
 
     }
 

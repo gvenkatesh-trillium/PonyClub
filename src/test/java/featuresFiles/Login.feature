@@ -5,7 +5,7 @@ Feature: Login
     Given I am on home page
     And I go to login page
     And I should see Login page
-#    And I enter valid username as "gvenkatesh@trillium.net" and password as "Password1"
-#    And I click <Submit> button
-#    Then I should be redirected "Connected family" page.
-#    Then I should be able to logout
+    And I enter valid username as "gvenkatesh@trillium.net" and password as "Password1"
+    And I click <Submit> button
+    Then I should be redirected "Connected family" page.
+    Then I should be able to logout

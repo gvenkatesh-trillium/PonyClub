@@ -60,9 +60,10 @@ public class RegistrationPage extends AbstractMain {
     public void enterPersonalDetails(DataTable personalDetails) throws InterruptedException {
 
         WebElement dropdown = driver.findElement(TitleDropDown);
+        Thread.sleep(2000);
         dropdown.click();
-        Thread.sleep(5000);
-        action.clickElement(By.cssSelector("body > ul.selectBox-dropdown-menu.selectBox-options.selectBox-selectBox-dropdown-menu.form-control-selectBox-dropdown-menu.selectBox-options-bottom > li:nth-child(54) > a"));
+        Thread.sleep(2000);
+        action.clickElement(By.cssSelector(".selectBox-options-bottom > li:nth-child(2) > a"));
 
         List<Map<String, String>> list = personalDetails.asMaps(String.class, String.class);
         action.sendElement(FirstName, list.get(0).get("FirstName"));
