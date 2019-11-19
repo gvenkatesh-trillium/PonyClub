@@ -58,8 +58,8 @@ steps:
 
 # YAML file in the release branch
 schedules:
-  - cron: "55 16 * * *"
-    displayName: Daily midnight build
-    branches:
-      include:
-        - master
+- cron: "55 16 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
