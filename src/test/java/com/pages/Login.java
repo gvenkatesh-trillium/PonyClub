@@ -54,7 +54,7 @@ public class Login extends AbstractMain {
 
     public void verifyLoggedInPage(String connectedFamily){
         Assert.assertTrue(action.getElementText(LoginPage).contains(connectedFamily));
-        Assert.assertTrue(action.getElementText(Header).contains("Logout"));
+//        Assert.assertTrue(action.getElementText(Header).contains("Logout"));
         Assert.assertTrue(driver.getCurrentUrl().contains("connected-family"));
     }
 

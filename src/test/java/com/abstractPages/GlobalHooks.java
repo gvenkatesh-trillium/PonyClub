@@ -16,16 +16,17 @@ public class GlobalHooks extends AbstractMain {
    @Before
     public void startTest() {
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
-//       ChromeOptions options = new ChromeOptions();
-//       options.addArguments("disable-infobars");
-//       options.addArguments("test-type");
-//       options.addArguments("allow-running-insecure-content");
-//       DesiredCapabilities caps = DesiredCapabilities.chrome();
-//       caps.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-//       caps.setCapability(ChromeOptions.CAPABILITY, options);
-//       driver = new ChromeDriver(options);
+       ChromeOptions options = new ChromeOptions();
+       options.addArguments("disable-infobars");
+       options.addArguments("test-type");
+       options.addArguments("allow-running-insecure-content");
+       options.setHeadless(true);
+       DesiredCapabilities caps = DesiredCapabilities.chrome();
+       caps.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+       caps.setCapability(ChromeOptions.CAPABILITY, options);
+       driver = new ChromeDriver(options);
 
-       driver = new ChromeDriver();
+//       driver = new ChromeDriver();
     }
     @After
     public void endTest(Scenario scenario) throws Exception {
