@@ -47,7 +47,7 @@ public class RegistrationPage extends AbstractMain {
     }
 
     public void verifyRegistrationPage() {
-        Assert.assertTrue(driver.getCurrentUrl().contains("/registration")); //
+        Assert.assertTrue(driver.getCurrentUrl().contains("/registration")); // check URL contains /registration
         Assert.assertTrue(driver.getTitle().contains("Registration - Pony Club"));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("Registration"));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("Personal Details"));
