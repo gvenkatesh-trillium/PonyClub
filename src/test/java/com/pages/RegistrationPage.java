@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends AbstractMain {
     public static By LoginPageCreateAccountButton = By.cssSelector(".downloadsblock-link:nth-child(4) .btn-anim2");
@@ -113,9 +114,10 @@ public class RegistrationPage extends AbstractMain {
     public void submitRegistration(String createAccount) throws InterruptedException {
 
         action.clickElement(CreateAccountButton);
-        Thread.sleep(20000);
+        Thread.sleep(30000);
     }
     public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
+        utils.waitForSeconds();
         Assert.assertTrue(action.getElementText(RegistrationPage).contains(thankYou));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("An email has been sent to you to enable you to activate your account. Please click the link in the email to go to the Login Page"));
         Thread.sleep(5000);
