@@ -43,7 +43,6 @@ public class RegistrationPage extends AbstractMain {
 
     public void goToRegistrationPage(String createAnAccount) throws InterruptedException {
        action.clickElement(LoginPageCreateAccountButton);
-
     }
 
     public void verifyRegistrationPage() {
@@ -55,7 +54,6 @@ public class RegistrationPage extends AbstractMain {
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("Account Details"));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("Terms & Conditions"));
         Assert.assertTrue(action.isElementPresent(CreateAccountButton));
-
     }
 
     public void enterPersonalDetails(DataTable personalDetails) throws InterruptedException {
