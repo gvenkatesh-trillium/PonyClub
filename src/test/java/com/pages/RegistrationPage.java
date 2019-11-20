@@ -116,9 +116,11 @@ public class RegistrationPage extends AbstractMain {
     }
     public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
         utils.waitForSeconds();
+        if(action.getElementText(RegistrationPage).contains("field is required")){
+            System.out.println(action.getElementText(RegistrationPage));
+        }
         Assert.assertTrue(action.getElementText(RegistrationPage).contains(thankYou));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("An email has been sent to you to enable you to activate your account. Please click the link in the email to go to the Login Page"));
-        Thread.sleep(5000);
     }
 
 }
