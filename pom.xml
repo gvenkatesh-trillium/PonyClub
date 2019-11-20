@@ -113,7 +113,7 @@
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>test</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>

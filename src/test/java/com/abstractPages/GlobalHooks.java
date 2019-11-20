@@ -34,8 +34,8 @@ public class GlobalHooks extends AbstractMain {
             // Take a screenshot...
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png"); // ... and embed it in the report.
-
         }
+
       driver.quit();
 
 
