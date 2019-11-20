@@ -58,7 +58,7 @@ steps:
 
 # YAML file in the release branch
 schedules:
-- cron: "10 * * * *"
+- cron: "00 12 * * *"
   displayName: Daily midnight build
   branches:
     include:
