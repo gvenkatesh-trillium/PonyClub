@@ -25,7 +25,6 @@ public class GlobalHooks extends AbstractMain {
        caps.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
        caps.setCapability(ChromeOptions.CAPABILITY, options);
        driver = new ChromeDriver(options);
-
 //       driver = new ChromeDriver();
     }
     @After
