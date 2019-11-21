@@ -13,4 +13,4 @@ Feature: Forgotten Password
     And I go to my inbox and click on reset password link
     And I should see reset password page
     And I enter new password and click <Submit>
-    Then I should see message "Thank You" and "Your password has been successfully changed."
+    Then I should see message "Thank you" and "Your password has been successfully changed."
