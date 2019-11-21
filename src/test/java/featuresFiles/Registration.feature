@@ -18,6 +18,6 @@ Feature: Registration
 #   email is generated randomly
    And I accept Terms & Conditions
    And I click <Create account> button to submit the form
-   Then I should see "Thank You" and activate yor account message
+   Then I should see "Thank you" and activate yor account message
 
 
