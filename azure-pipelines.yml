@@ -40,7 +40,7 @@ steps:
 #      serverUrl: 'ftp://waws-prod-ln1-025dr.ftp.azurewebsites.windows.net/site/wwwroot'
 #      username: 'trillium-qa-reports\$trillium-qa-reports'
 #      password: 'rqrMZNj7QneKHSvQB78Dp8cX30piWwZRcownn37ZoukwsZqKBGwmv2oy3Q3v'
-#      rootDirectory: 'D:/a/1/s/target/cucumber-report/'
+#      rootDirectory: 'D:/a/1/s/target/reports/'
 #      filePatterns: '**'
 #      remoteDirectory: '/site/wwwroot/'
 #      clean: false
@@ -50,7 +50,7 @@ steps:
 
 #  - task: ArchiveFiles@2
 #    inputs:
-#      rootFolderOrFile: 'D:/a/1/s/target/cucumber-report/'
+#      rootFolderOrFile: 'D:/a/1/s/target/reports/'
 #      includeRootFolder: false
 #      archiveType: 'zip'
 #      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
