@@ -119,7 +119,7 @@
                         </goals>
                         <configuration>
                             <projectName>Pony Club</projectName>
-                            <outputDirectory>${project.build.directory}/Reports${timestamp}</outputDirectory>
+                            <outputDirectory>${project.build.directory}/reports/reports${timestamp}</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                         </configuration>
                     </execution>

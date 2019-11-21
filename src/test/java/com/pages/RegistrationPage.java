@@ -87,7 +87,7 @@ public class RegistrationPage extends AbstractMain {
         System.out.println("Get text "+ driver.findElement(CountryDrpDown).getText());
 
 
-        if(driver.findElement(CountryDrpDown).getText().contains("Country")){
+        if(driver.findElement(CountryDrpDown).getText().contains("Country")){  //fix for country dropdown - it was not selecting when postcode entered
             WebElement countryDrpDown = driver.findElement(CountryDrpDown);
             Thread.sleep(2000);
             countryDrpDown.click();

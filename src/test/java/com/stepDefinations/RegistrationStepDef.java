@@ -22,7 +22,6 @@ public class RegistrationStepDef extends AbstractMain {
     @And("^I should see Registration form page$")
     public void i_should_see_Registration_form_page() throws Throwable {
         registrationPage.verifyRegistrationPage();
-
     }
 
     @And("^I enter the following personal details$")
