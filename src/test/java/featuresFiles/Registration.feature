@@ -11,7 +11,7 @@ Feature: Registration
      |Random Selection   |Automated FirstName|	Automated LastName|	01234567890 	|
    And I enter the following details address details
      | PostCode | Address 1 	  |	Address 2 		|	Town    | County           |   Country	         |
-     |  SE1 9HF | London Address 1|	London Address 2|	London 	| Auto Selected |	Auto Selected |
+     |  SE1 9HF | London Address 1|	London Address 2|	London 	| Auto Selected    |	Auto Selected    |
    And I enter the following details account details
      | eMail     		     | ConfirmEmail 		 |	Password  |	ConfirmPassword |
      |  automated@test.com   |automated@test.com     |	Password1 |	Password1   	|

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import static com.pages.Login.ForgotPasswordLink;
 
@@ -57,6 +58,8 @@ public class ForgotPassword extends AbstractMain {
         Thread.sleep(5000);
 
         if(driver.findElement(ForgotPasswordPage).getText().contains("The reset link has expired. Please request a new one"))
+
+            try{
             for (int i = 1; i <= 5; i++) {
                 driver.switchTo().window(tabs2.get(1));
 //                driver.close();
@@ -73,7 +76,11 @@ public class ForgotPassword extends AbstractMain {
                 if(!driver.findElement(ForgotPasswordPage).getText().contains("The reset link has expired. Please request a new one")){
                     break;
                 }
-            }
+
+            }}
+        catch (NoSuchElementException ne){
+            System.out.println("Exception = no such element at line number 76(on if condition)");
+        }
 
 
 
