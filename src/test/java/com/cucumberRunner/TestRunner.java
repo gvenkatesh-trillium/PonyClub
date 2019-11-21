@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         "json:target/cucumber.json", "pretty:target/cucumber-pretty.txt",
         "usage:target/cucumber-usage.json",
         "junit:target/cucumber-results.xml"},
-        features = { "./src/test/java/featuresFiles/Registration.feature" },
+        features = { "./src/test/java/featuresFiles" },
         glue = {"com.stepDefinations", "com.abstractPages"})
 class TestRunner {
 

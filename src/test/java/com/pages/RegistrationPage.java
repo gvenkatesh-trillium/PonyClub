@@ -32,6 +32,7 @@ public class RegistrationPage extends AbstractMain {
     public static By Address2 = By.cssSelector("#Address2");
     public static By Town = By.cssSelector("#Town");
     public static By AccountDetailLink = By.cssSelector(".row:nth-child(7) .button");
+    public static By CountryDrpDown = By.cssSelector(".ctaddress-country > .selectBox-label");
     public static By eMail = By.cssSelector("#Email");
     public static By ConfirmEmail = By.cssSelector("#ConfirmEmail");
     public static By Password = By.cssSelector("#Password");
@@ -83,6 +84,17 @@ public class RegistrationPage extends AbstractMain {
         Thread.sleep(5000);
         action.clickElement(By.cssSelector("li:nth-child(3) span:nth-child(1)"));
         Thread.sleep(5000);
+        System.out.println("Get text "+ driver.findElement(CountryDrpDown).getText());
+
+
+        if(driver.findElement(CountryDrpDown).getText().contains("Country")){
+            WebElement countryDrpDown = driver.findElement(CountryDrpDown);
+            Thread.sleep(2000);
+            countryDrpDown.click();
+            Thread.sleep(2000);
+            action.clickElement(By.cssSelector(".ctaddress-country-selectBox-dropdown-menu > li:nth-child(5) > a"));
+
+        }
     }
 
     public void enterAccountDetails(DataTable account) throws InterruptedException {
