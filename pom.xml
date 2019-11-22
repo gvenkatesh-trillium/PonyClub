@@ -84,6 +84,27 @@
 
 
     </dependencies>
+    <repositories>
+        <repository>
+            <id>repo</id>
+            <url>https://trilliumsystemsltd.pkgs.visualstudio.com/_packaging/repo/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>repo</id>
+            <url>https://trilliumsystemsltd.pkgs.visualstudio.com/_packaging/repo/maven/v1</url>
+        </repository>
+    </distributionManagement>
+
+
     <build>
         <plugins>
             <plugin>
