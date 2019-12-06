@@ -31,8 +31,8 @@ public class RegistrationStepDef extends AbstractMain {
 
     }
 
-    @And("^I enter the following details address details$")
-    public void i_enter_the_following_details_address_details(DataTable address) throws Throwable {
+    @And("^I enter the following address details or select from dropdown$")
+    public void i_enter_the_following_address_details_or_select_from_dropdown(DataTable address) throws Throwable {
     registrationPage.enterAddressDetails(address);
 
     }
@@ -54,6 +54,11 @@ public class RegistrationStepDef extends AbstractMain {
     @Then("^I should see \"([^\"]*)\" and activate yor account message$")
     public void i_should_see_something_and_activate_yor_account_message(String thankYou) throws Throwable {
         registrationPage.verifyRegistrationConfirmation(thankYou);
+
+    }
+    @Then("^I should be redirected to login page automatically$")
+    public void i_should_be_redirected_to_login_page_automatically() throws InterruptedException {
+        registrationPage.checkRedirectionToLoginPage();
 
     }
 

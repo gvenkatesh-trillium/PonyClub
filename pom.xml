@@ -83,6 +83,7 @@
 
 
 
+
     </dependencies>
     <repositories>
         <repository>
@@ -134,7 +135,7 @@
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>package</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>

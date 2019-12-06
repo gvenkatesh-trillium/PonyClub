@@ -12,6 +12,7 @@ import com.abstractPages.AbstractMain;
 import cucumber.api.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -43,7 +44,11 @@ public class RegistrationPage extends AbstractMain {
 
 
     public void goToRegistrationPage(String createAnAccount) throws InterruptedException {
-       action.clickElement(LoginPageCreateAccountButton);
+        WebElement element = driver.findElement(LoginPageCreateAccountButton);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",element);
+//       action.clickElement(LoginPageCreateAccountButton);
+
     }
 
     public void verifyRegistrationPage() {
@@ -82,7 +87,9 @@ public class RegistrationPage extends AbstractMain {
 //        action.sendElement(Address2, list.get(0).get("Address 2"));
 //        action.sendElement(Town, list.get(0).get("Town"));
         Thread.sleep(5000);
-        action.clickElement(By.cssSelector("li:nth-child(3) span:nth-child(1)"));
+        action.clickElement(By.cssSelector(".pcaautocomplete:nth-child(7) .pcadescription"));
+        Thread.sleep(5000);
+        action.clickElement(By.cssSelector(".pcalastitem:nth-child(4)"));
         Thread.sleep(5000);
         System.out.println("Get text "+ driver.findElement(CountryDrpDown).getText());
 
@@ -122,17 +129,21 @@ public class RegistrationPage extends AbstractMain {
     }
 
     public void submitRegistration(String createAccount) throws InterruptedException {
-
         action.clickElement(CreateAccountButton);
-        Thread.sleep(30000);
+
     }
     public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
         utils.waitForSeconds();
-        if(action.getElementText(RegistrationPage).contains("field is required")){
-            System.out.println(action.getElementText(RegistrationPage));
-        }
+//        if(action.getElementText(RegistrationPage).contains("field is required")){
+//            System.out.println(action.getElementText(RegistrationPage));
+//        }
         Assert.assertTrue(action.getElementText(RegistrationPage).contains(thankYou));
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("An email has been sent to you to enable you to activate your account. Please click the link in the email to go to the Login Page"));
+    }
+
+    public void checkRedirectionToLoginPage() throws InterruptedException {
+        Thread.sleep(10000);
+        Assert.assertTrue(driver.getCurrentUrl().contains(BASE_URL+"/login"));
     }
 
 }
