@@ -11,12 +11,10 @@ import java.util.Random;
 import com.abstractPages.AbstractMain;
 import cucumber.api.DataTable;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,7 +31,7 @@ public class RegistrationPage extends AbstractMain {
     public static By Address2 = By.cssSelector("#Address2");
     public static By Town = By.cssSelector("#Town");
     public static By AccountDetailLink = By.cssSelector(".row:nth-child(7) .button");
-    public static By CountryDrpDown = By.cssSelector(".ctaddress-country > .selectBox-label");
+    public static By CountryDrpDown = By.cssSelector(".selectBox.form-control.ctaddress-country.selectBox-dropdown");
     public static By eMail = By.cssSelector("#Email");
     public static By ConfirmEmail = By.cssSelector("#ConfirmEmail");
     public static By Password = By.cssSelector("#Password");
@@ -63,14 +61,8 @@ public class RegistrationPage extends AbstractMain {
     }
 
     public void enterPersonalDetails(DataTable personalDetails) throws InterruptedException {
-
-        WebElement dropdown = driver.findElement(TitleDropDown);
-        Thread.sleep(2000);
-        dropdown.click();
-        Thread.sleep(2000);
-        action.clickElement(By.cssSelector(".selectBox-options-bottom > li:nth-child(2) > a"));
-
         List<Map<String, String>> list = personalDetails.asMaps(String.class, String.class);
+        driver.findElement(TitleDropDown).sendKeys(list.get(0).get("Title"));
         action.sendElement(FirstName, list.get(0).get("FirstName"));
         action.sendElement(LastName, list.get(0).get("LastName"));
         action.sendElement(TelephoneNumber, list.get(0).get("TelephoneNumber"));
@@ -83,25 +75,27 @@ public class RegistrationPage extends AbstractMain {
         Thread.sleep(2000);
         List<Map<String, String>> list = address.asMaps(String.class, String.class);
         action.sendElement(PostCode, list.get(0).get("PostCode"));
-//        action.sendElement(Address1, list.get(0).get("Address 1"));
-//        action.sendElement(Address2, list.get(0).get("Address 2"));
-//        action.sendElement(Town, list.get(0).get("Town"));
+//        action.sendElement(PostCode,"B1 1JY");
         Thread.sleep(5000);
         action.clickElement(By.cssSelector(".pcaautocomplete:nth-child(7) .pcadescription"));
         Thread.sleep(5000);
         action.clickElement(By.cssSelector(".pcalastitem:nth-child(4)"));
-        Thread.sleep(5000);
-        System.out.println("Get text "+ driver.findElement(CountryDrpDown).getText());
+//        action.clickElement(By.cssSelector("body > div.pca > div:nth-child(7) > div.pca.pcalist > div.pcaitem.pcaselected"));
+        Thread.sleep(2000);
+        if (driver.getPageSource().contains("Sorry, we could not retrieve this address")) {
 
-
-        if(driver.findElement(CountryDrpDown).getText().contains("Country")){  //fix for country dropdown - it was not selecting when postcode entered
-            WebElement countryDrpDown = driver.findElement(CountryDrpDown);
+            action.sendElement(PostCode, list.get(0).get("PostCode"));
+            action.sendElement(Address1, list.get(0).get("Address 1"));
+            action.sendElement(Address2, list.get(0).get("Address 2"));
+            action.sendElement(Town, list.get(0).get("Town"));
+            driver.findElement(CountryDrpDown).sendKeys(list.get(0).get("Country"));
             Thread.sleep(2000);
-            countryDrpDown.click();
-            Thread.sleep(2000);
-            action.clickElement(By.cssSelector(".ctaddress-country-selectBox-dropdown-menu > li:nth-child(5) > a"));
+            action.clickElement(By.cssSelector("a[rel='42579c4a-ebd4-e711-a94b-00224801b4c8']"));
+            Thread.sleep(5000);
 
         }
+
+
     }
 
     public void enterAccountDetails(DataTable account) throws InterruptedException {

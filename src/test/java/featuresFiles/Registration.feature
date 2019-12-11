@@ -7,14 +7,14 @@ Feature: Registration
    And I will click on <Crate an account> button in login page
    And I should see Registration form page
    And I enter the following personal details
-     | Title     		 | FirstName 		 |	LastName 		  |	TelephoneNumber |
-     |Random Selection   |Automated FirstName|	Automated LastName|	01234567890 	|
-   And I enter the following address details or select from dropdown
-     | PostCode  | Address 1  |	Address 2 		     |	Town        | County           |  Country	      |
-     | WR5 3DA   | Loqate     |	Waterside, Basin Road|	Worcester 	| Worcestershire   |  United Kingdom  |
+     | Title | FirstName           | LastName           | TelephoneNumber |
+     | Miss  | Automated FirstName | Automated LastName | 01234567890     |
+   And I select following address from dropdown or enter the address manually if loqate service is not available
+     | PostCode | Address 1 | Address 2             | Town      | County         | Country        |
+     | WR5 3DA  | Loqate    | Waterside, Basin Road | Worcester | Worcestershire | United Kingdom |
    And I enter the following details account details
-     | eMail     		           | ConfirmEmail 		         |	Password  |	ConfirmPassword |
-     |  randomGenerated@email.com  |randomGenerated@email.com    |	Password1 |	Password1   	|
+     | eMail                     | ConfirmEmail              | Password  | ConfirmPassword |
+     | randomGenerated@email.com | randomGenerated@email.com | Password1 | Password1       |
 #   random email generated every time.
    And I accept Terms & Conditions
    And I click <Create account> button to submit the form

@@ -31,9 +31,9 @@ public class RegistrationStepDef extends AbstractMain {
 
     }
 
-    @And("^I enter the following address details or select from dropdown$")
-    public void i_enter_the_following_address_details_or_select_from_dropdown(DataTable address) throws Throwable {
-    registrationPage.enterAddressDetails(address);
+    @And("^I select following address from dropdown or enter the address manually if loqate service is not available$")
+    public void i_select_following_address_from_dropdown_or_enter_the_address_manually_if_loqate_service_is_not_available(DataTable address) throws Throwable {
+        registrationPage.enterAddressDetails(address);
 
     }
 
