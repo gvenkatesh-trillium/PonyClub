@@ -10,12 +10,14 @@ public class HomePage extends AbstractMain {
 
 
     public void goToHomePage() throws InterruptedException {
+
         driver.get(BASE_URL);
         driver.manage().window().maximize();
-        Assert.assertEquals(driver.getTitle(),Title);   // Check Title displayed
-        Thread.sleep(5000);
+        Assert.assertEquals(driver.getTitle(), Title);   // Check Title displayed
+        utils.waitForSeconds();
 //        action.clickElement(Cookie);                    // accept cookies
-        Thread.sleep(5000);
+        globalHooks.scenario.write("No Cookies message displayed ");
+        utils.waitForSeconds();
 
     }
 

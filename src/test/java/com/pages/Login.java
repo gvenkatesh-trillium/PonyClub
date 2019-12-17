@@ -19,8 +19,8 @@ public class Login extends AbstractMain {
 
     public void goToLoginPage() throws InterruptedException {
 //        action.clickElement(LoginLink);
-        driver.get(BASE_URL+"/login");
-        Thread.sleep(5000);
+        driver.get(BASE_URL + "/login");
+        utils.waitForSeconds();
 
     }
 
@@ -42,13 +42,13 @@ public class Login extends AbstractMain {
 
         action.sendElement(UsernameBox, username);
         action.sendElement(PasswordBox, password);
-        Thread.sleep(3000);
+        utils.waitForSeconds();
 
     }
 
     public void clickSubmitButton(String submitButton) throws InterruptedException {
         action.clickElement(Login.submitButton);
-        Thread.sleep(10000);
+        utils.waitForSeconds();
 
     }
 

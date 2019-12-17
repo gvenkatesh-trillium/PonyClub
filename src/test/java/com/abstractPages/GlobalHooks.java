@@ -13,7 +13,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class GlobalHooks extends AbstractMain {
 
-   @Before
+    @Before
+    public void before(Scenario scenario) {
+        this.scenario = scenario;
+    }
+
+    @Before
     public void startTest() {
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
 //       ChromeOptions options = new ChromeOptions();
@@ -26,7 +31,9 @@ public class GlobalHooks extends AbstractMain {
 //       caps.setCapability(ChromeOptions.CAPABILITY, options);
 //       driver = new ChromeDriver(options);
        driver = new ChromeDriver();
+
     }
+
     @After
     public void endTest(Scenario scenario) throws Exception {
         if (scenario.isFailed()) {

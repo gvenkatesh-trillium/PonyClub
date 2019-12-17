@@ -5,18 +5,14 @@ package com.pages;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-//import java.util.concurrent.ThreadLocalRandom;
+
 
 
 import com.abstractPages.AbstractMain;
 import cucumber.api.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class RegistrationPage extends AbstractMain {
     public static By LoginPageCreateAccountButton = By.cssSelector(".downloadsblock-link:nth-child(4) .btn-anim2");
@@ -41,10 +37,10 @@ public class RegistrationPage extends AbstractMain {
     public static By CreateAccountButton = By.cssSelector(".btn_white_to_red > .btn-anim2");
 
 
-    public void goToRegistrationPage(String createAnAccount) throws InterruptedException {
+    public void goToRegistrationPage(String createAnAccount) {
         WebElement element = driver.findElement(LoginPageCreateAccountButton);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();",element);
+        js.executeScript("arguments[0].click();", element);
 //       action.clickElement(LoginPageCreateAccountButton);
 
     }
@@ -72,16 +68,23 @@ public class RegistrationPage extends AbstractMain {
     public void enterAddressDetails(DataTable address) throws InterruptedException {
 
         action.clickElement(AddressDetailsLink);
-        Thread.sleep(2000);
+        utils.waitForSeconds();
         List<Map<String, String>> list = address.asMaps(String.class, String.class);
         action.sendElement(PostCode, list.get(0).get("PostCode"));
-//        action.sendElement(PostCode,"B1 1JY");
-        Thread.sleep(5000);
+        utils.waitForSeconds();
+        Thread.sleep(4000);
+        utils.webDriverWaitForVisibilityOfElement(By.cssSelector(".pcaautocomplete:nth-child(7) .pcadescription"));
         action.clickElement(By.cssSelector(".pcaautocomplete:nth-child(7) .pcadescription"));
-        Thread.sleep(5000);
+        utils.waitForSeconds();
+
+//        List <WebElement> listings = driver.findElements(By.cssSelector("div.pcaitem"));
+//        Random r = new Random();
+//        int randomValue = r.nextInt(listings.size()); //Getting a random value that is between 0 and (list's size)-1
+//        listings.get(randomValue).click();
+
         action.clickElement(By.cssSelector(".pcalastitem:nth-child(4)"));
 //        action.clickElement(By.cssSelector("body > div.pca > div:nth-child(7) > div.pca.pcalist > div.pcaitem.pcaselected"));
-        Thread.sleep(2000);
+        utils.waitForSeconds();
         if (driver.getPageSource().contains("Sorry, we could not retrieve this address")) {
 
             action.sendElement(PostCode, list.get(0).get("PostCode"));
@@ -89,44 +92,46 @@ public class RegistrationPage extends AbstractMain {
             action.sendElement(Address2, list.get(0).get("Address 2"));
             action.sendElement(Town, list.get(0).get("Town"));
             driver.findElement(CountryDrpDown).sendKeys(list.get(0).get("Country"));
-            Thread.sleep(2000);
+            utils.waitForSeconds();
             action.clickElement(By.cssSelector("a[rel='42579c4a-ebd4-e711-a94b-00224801b4c8']"));
-            Thread.sleep(5000);
+            utils.waitForSeconds();
 
         }
 
 
     }
 
-    public void enterAccountDetails(DataTable account) throws InterruptedException {
+    public void enterAccountDetails(DataTable account) {
         action.clickElement(By.cssSelector(".step-wrapper:nth-child(3) .step-wrapper-cta-title"));
         Random rn = new Random();
-        int rNumber = rn.nextInt(10000 - 10 + 1) + 1;
+        int rNumber = rn.nextInt(100000 - 10 + 1) + 1;
         String rNum = String.valueOf(rNumber);
-        Thread.sleep(5000);
+        utils.waitForSeconds();
         List<Map<String, String>> list = account.asMaps(String.class, String.class);
-        action.sendElement(eMail, rNum+list.get(0).get("eMail"));
-        action.sendElement(ConfirmEmail, rNum+list.get(0).get("ConfirmEmail"));
+        action.sendElement(eMail, rNum + list.get(0).get("eMail"));
+        globalHooks.scenario.write("random email address used '" + rNum + list.get(0).get("eMail") + "'");
+//        globalHooks.scenario.write(globalHooks.scenario.getStatus());
+        action.sendElement(ConfirmEmail, rNum + list.get(0).get("ConfirmEmail"));
         action.sendElement(Password, list.get(0).get("Password"));
         action.sendElement(ConfirmPassword, list.get(0).get("ConfirmPassword"));
-        Thread.sleep(5000);
-
+        utils.waitForSeconds();
 
     }
     public void acceptTermsAndConditions() throws InterruptedException {
         action.clickElement(By.cssSelector(".step-wrapper:nth-child(4) .step-wrapper-cta-title"));
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         action.clickElement(Terms);
         action.clickElement(Conditions);
-        Thread.sleep(5000);
+        utils.waitForSeconds();
 
     }
 
-    public void submitRegistration(String createAccount) throws InterruptedException {
+    public void submitRegistration(String createAccount) {
         action.clickElement(CreateAccountButton);
 
     }
-    public void verifyRegistrationConfirmation(String thankYou) throws InterruptedException {
+
+    public void verifyRegistrationConfirmation(String thankYou) {
         utils.waitForSeconds();
 //        if(action.getElementText(RegistrationPage).contains("field is required")){
 //            System.out.println(action.getElementText(RegistrationPage));
@@ -135,9 +140,11 @@ public class RegistrationPage extends AbstractMain {
         Assert.assertTrue(action.getElementText(RegistrationPage).contains("An email has been sent to you to enable you to activate your account. Please click the link in the email to go to the Login Page"));
     }
 
-    public void checkRedirectionToLoginPage() throws InterruptedException {
-        Thread.sleep(10000);
-        Assert.assertTrue(driver.getCurrentUrl().contains(BASE_URL+"/login"));
+    public void checkRedirectionToLoginPage() {
+        utils.webDriverWaitForVisibilityOfElement(By.cssSelector("a[href='/forgotten-password/']"));
+        Assert.assertTrue(driver.findElement(By.cssSelector(".main-body")).getText().contains("Username"));
+        Assert.assertTrue(driver.findElement(By.cssSelector(".main-body")).getText().contains("Password"));
+        Assert.assertTrue(driver.getCurrentUrl().contains(BASE_URL + "/login"));
     }
 
 }

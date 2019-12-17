@@ -21,4 +21,3 @@ Feature: Registration
    Then I should see "Thank you" and activate yor account message
    Then I should be redirected to login page automatically
 
-

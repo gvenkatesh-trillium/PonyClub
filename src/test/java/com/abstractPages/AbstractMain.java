@@ -2,6 +2,7 @@ package com.abstractPages;
 
 import com.pages.*;
 import com.utils.CommonUtils;
+import cucumber.api.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -23,8 +24,7 @@ public class AbstractMain {
     public static By Header = By.cssSelector(".header");
     public static By Footer = By.cssSelector(".footer");
     public static By LowerFooter = By.className("__lower");
-
-
+    public static Scenario scenario;
 
 
 }

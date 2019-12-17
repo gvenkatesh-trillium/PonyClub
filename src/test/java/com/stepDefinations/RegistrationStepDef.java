@@ -40,6 +40,7 @@ public class RegistrationStepDef extends AbstractMain {
     @And("^I enter the following details account details$")
     public void i_enter_the_following_details_account_details(DataTable account) throws Throwable {
         registrationPage.enterAccountDetails(account);
+
     }
 
     @And("^I accept Terms & Conditions$")
