@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 public class HomePage extends AbstractMain {
     public static By Cookie = By.cssSelector(".cookie__btn");
-    public String Title = "Trillium";
+    public String Title = "Login";
 
 
     public void goToHomePage() throws InterruptedException {
